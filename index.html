@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>形象官網製作 (露營區)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        body {
+            font-family: "Zen Maru Gothic", serif;
+        }
+
+        .s12-text {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+        }
+
+        .s14 {
+            background-image: url(images/SPA/BGI03.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 100px 20px;
+        }
+
+        .s14m {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .s14m>img {
+            margin-bottom: 35px;
+        }
+
+        .s14m p {
+            margin: 35px 0 100px;
+        }
+
+        .s14m .d-flex {
+            justify-content: space-between;
+        }
+
+        .s14m .d-flex img {
+            border-radius: 15px;
+            width: calc((100% - 50px) / 3);
+        }
+
+        .edit,
+        .show_content,
+        .main_part {
+            width: 100%;
+            max-width: 100%;
+            margin: auto;
+            padding: 0px 0px;
+        }
+
+        .show_content {
+            width: 100%;
+            margin: auto;
+            padding: 0px 0px;
+        }
+
+        .center_box {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .path,
+        .banner {
+            display: none;
+        }
+
+        .pageIndex .main_part {
+            border: none !important;
+        }
+
+        .hs_box * {
+            line-height: 180%;
+            font-size: 16px;
+            border: 0;
+            outline: none;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+            max-width: 100%;
+            font-family: 'Noto Serif TC', serif;
+            color: #000;
+            overflow-wrap: break-word;
+            -webkit-transition: ease .3s;
+            -moz-transition: ease .3s;
+            -ms-transition: ease .3s;
+            -o-transition: ease .3s;
+            transition: ease .3s;
+            letter-spacing: 1px;
+        }
+
+        .hs_box img {
+            max-width: 100%;
+        }
+
+        .hs_clear::before,
+        .hs_clear::after {
+            content: '';
+            display: table;
+        }
+
+        .hs_clear::after {
+            clear: both;
+        }
+
+        .hs_clear {
+            zoom: 1;
+        }
+
+        .hs_box {
+            overflow: hidden;
+            max-width: 2000px;
+            margin: auto;
+        }
+
+        /* 共用 */
+        .animated15 {
+            animation: none;
+        }
+
+        .si_iw1200,
+        .si_iw1400 {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .si_iw1400 {
+            width: 1400px;
+        }
+
+        .d-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .si_i h6 {
+            color: rgb(134, 179, 178);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .si_i p {
+            color: rgb(82, 82, 82);
+            font-size: 17px;
+        }
+
+        /* main */
+        .si_t01 {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url(https://pic03.eapple.com.tw/simplelifecamp/si_t_bg1.jpg);
+            padding: 350px 20px 250px;
+        }
+
+        /* 01 */
+        .si_t01m {
+            justify-content: flex-end;
+        }
+
+        .si_t01box {
+            background-color: rgb(253, 251, 249);
+            width: 670px;
+            border-radius: 15px;
+            padding: 50px 53px;
+        }
+
+        .si_t01box h6 {
+            margin-bottom: 30px;
+        }
+
+        .si_t01c {
+            position: relative;
+            line-height: 50%;
+            justify-content: flex-start;
+            overflow: hidden;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .si_t01c img:nth-child(1) {
+            margin: 3px 8px 0 0;
+        }
+
+        .si_t01c .popo {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .si_t01c:last-child {
+            padding: 0;
+            margin: 0;
+        }
+
+        .si_m01 {
+            background-color: rgb(250, 246, 241);
+            padding: 100px 20px;
+            margin-top: -8px;
+        }
+
+        .m_box {
+            display: none;
+        }
+
+        .timeline-section {
+            position: relative;
+            display: flex;
+            /* 啟用 Flexbox */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+        }
+
+        .timeline-section::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            background-color: var(--mycolor10);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+        }
+
+        .timeline-section-pointer::before {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: var(--mycolor05);
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            border: 7px solid var(--mycolor28);
+        }
+
+        .timeline-section-pointer:hover::before {
+            width: 23px;
+            height: 23px;
+        }
+
+        @media (max-width:1440px) {
+
+            .si_iw1200,
+            .si_iw1400 {
+                width: 1000px;
+            }
+
+            @media (max-width:1200px) {
+                .si_i h6 {
+                    font-size: 20px;
+                }
+
+                .si_i p {
+                    font-size: 16px;
+                }
+
+                /* 01 */
+                .si_t01box h6 {
+                    margin-bottom: 20px;
+                }
+
+                .si_t01box {
+                    width: 500px;
+                    padding: 30px;
+                }
+            }
+        }
+
+        @media (max-width:1024px) {
+
+            .si_t01 {
+                padding: 100px 20px;
+            }
+
+            .si_t01m {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width:960px) {
+            /*平板*/
+        }
+
+        @media (max-width:768px) {}
+
+        @media (max-width:640px) {}
+
+        @media (max-width:570px) {}
+
+        @media (max-width:480px) {
+
+            .si_t01 {
+                padding: 50px 10px;
+            }
+
+            .si_t01box {
+                padding: 30px 15px;
+            }
+
+            .si_t01box h6 {
+                text-align: center;
+            }
+
+            .si_t01c .popo {
+                max-width: unset;
+            }
+
+            .si_m01 {
+                padding: 50px 30px;
+            }
+
+            .si_t01 {
+                display: none;
+            }
+
+            .si_i h6 {
+                margin-bottom: 20px;
+            }
+
+            .m_box {
+                display: block;
+            }
+        }
+
+        @media (max-width:1024px) {
+
+            .s14 {
+                padding: 60px 20px;
+            }
+
+            .s14m>img {
+                margin-bottom: 20px;
+            }
+
+            .s14m p {
+                margin: 20px 0 35px;
+            }
+
+            .s14m .d-flex img {
+                width: calc((100% - 20px) / 3);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .s05-text,
+            .s08-text {
+                z-index: 10;
+                background-color: rgba(0, 0, 0, 0.2);
+                color: var(--mycolor05);
+                margin: 15px;
+                box-shadow: 2px 2px 10px 2px #faf9f9;
+                border-radius: 15px;
+                padding: 15px;
+            }
+
+            @media screen and (max-width:768px) {
+
+                .timeline-section::before,
+                .timeline-section-pointer::before {
+                    display: none;
+                }
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- section 01 社群連結-->
+    <section id="s01" class="bg-005 py-2">
+        <div class="container">
+            <div class="text-end">
+                <a href="#">
+                    <img src="images/icon/facebook.png" alt="" width="22px" class="wow animate__headShake"
+                        data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="infinite">
+                </a>
+                <a href="#">
+                    <img src="images/icon/twitter.png" alt="" width="22px" class="wow animate__headShake"
+                        data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="infinite">
+                    <a href="#">
+                        <img src="images/icon/instagram.png" alt="" width="22px" class="wow animate__headShake"
+                            data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="infinite">
+                    </a>
+                    <a href="#">
+                        <img src="images/icon/line.png" alt="" width="22px" class="wow animate__headShake"
+                            data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="infinite">
+                    </a>
+                    <a href="#">
+                        <img src="images/icon/youtube.png" alt="" width="22px" class="wow animate__headShake"
+                            data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="infinite">
+                    </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 02 導覽列 -->
+    <section id="s02" class="bg-dark">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <img src="images/icon/car.png" alt="" width="50px" class="wow animate__bounceInLeft"
+                        data-wow-duration="3s" data-wow-delay="0s" data-wow-iteration="1">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s04">活動精神</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s05">營區內容</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s06">嚴選食材</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s12">露營流程教學</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s07">設備及環境</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s08">營區方案</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s09">營區預約表單</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s10">合作營區連結</a>
+                            </li>
+                        </ul>
+                        <button class="btn btn-warning me-1" data-bs-toggle="modal"
+                            data-bs-target="#registerModal">註冊</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">登入</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Modal : 會員註冊 -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-bg-warning">
+                    <h1 class="modal-title fs-4 fw-900" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex flex-column h-100">
+                                <div class="display-6 fw-900 my-3">會員守則</div>
+                                <p>1.誠實提供個人資訊<br>
+                                    會員在註冊時，應提供真實、準確、完整的個人資料，並保持資料的最新狀態。若有虛假資訊，可能會影響會員的權益或導致帳號被停用。</p>
+                                <p>2.遵守平台規範<br>
+                                    會員應遵守本平台的所有使用條款及規範，不得進行任何非法或不當的行為，如詐騙、濫用服務或損害他人權益等。</p>
+                                <p>3.保護帳號安全<br>
+                                    會員應妥善保管帳號密碼，不得將帳號密碼透露給他人。若發現帳號異常或疑似被盜用，應立即通知平台以便及時處理。</p>
+                                <p>4.尊重他人權利<br>
+                                    會員在使用平台服務時，應尊重其他會員的隱私與權益，不得發表侮辱、歧視、威脅或違反社會道德的言論或行為。</p>
+                                <div class="form-check mt-auto">
+                                    <input type="checkbox" class="form-check-input is-invalid">
+                                    <label for="" class="form-check-label">不同意</label>
+                                    <div class="invalid-feedback">須同意始能註冊!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="" class="form-label">帳號</label>
+                                <input type="text" class="form-control is-invalid">
+                                <div class="valid-feedback">符合規則</div>
+                                <div class="invalid-feedback">不符合規則</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">密碼</label>
+                                <input type="password" class="form-control is-invalid">
+                                <div class="valid-feedback">符合規則</div>
+                                <div class="invalid-feedback">不符合規則</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control is-invalid">
+                                <div class="valid-feedback">符合規則</div>
+                                <div class="invalid-feedback">不符合規則</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control is-invalid">
+                                <div class="valid-feedback">符合規則</div>
+                                <div class="invalid-feedback">不符合規則</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- loginModal : 會員登入 -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-success">
+                    <h1 class="modal-title  fs-4 fw-900" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section 03 輪播圖 -->
+    <section id="s03">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item bg-cover active"
+                    style="height: 100vh; background-image: url(images/SPA/SPA01.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(238, 18, 18, 0.2);">
+                        <h3 class="fw-900">星空、微風與你：小日子的露營浪漫</h3>
+                        <p class="fs-5 text-info">
+                            主打夜晚的露營氛圍，適合情侶或喜愛浪漫的人群。
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover" style="height: 100vh; background-image: url(images/SPA/SPA02.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(70, 172, 44, 0.5);">
+                        <h3 class="fw-900">小日子的簡單幸福，來這裡找到答案</h3>
+                        <p class="fs-5 text-warning">
+                            突出露營區是放鬆心靈、感受幸福的理想選擇。
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover" style="height: 100vh; background-image: url(images/SPA/SPA03.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(214, 218, 33, 0.7);">
+                        <h3 class="fw-900">喚醒自然初心，小日子的每一天都特別</h3>
+                        <p class="fs-5 text-info">
+                            描述露營區如詩如畫的景色，適合與大自然連結的休閒體驗。
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover" style="height: 100vh; background-image: url(images/SPA/SPA04.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(224, 25, 118, 0.2);">
+                        <h3 class="fw-900">小日子的故事，從這片自然展開</h3>
+                        <p class="fs-5 text-info">
+                            營造露營區是一個滿載回憶與故事的地方，適合分享。
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover" style="height: 100vh; background-image: url(images/SPA/SPA05.jpg);">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4 shadow-lg"
+                        style="background-color: rgba(52, 208, 255, 0.8);">
+                        <h3 class="fw-900">小日子，大自在：享受屬於你的慢活時光
+                        </h3>
+                        <p class="fs-5 text-warning">
+                            強調露營區的悠閒氛圍，讓人放慢腳步感受生活的美好。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- section 14 關於我們 -->
+    <section class="s14">
+        <div class="s14m d-flex">
+            <img src="images/SPA/logo04.png" alt="" width="69px" height="9px">
+            <h4 class="text-009 wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0s"
+                data-wow-iteration="1">生活偶爾的留白，就讓小日子露營區的悠閒自得填滿吧！</h4>
+            <p class="wow animate__fadeInUp" data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                一個專屬的場域，網美最夯的鐘型帳，喝酒談心的炊事帳，還有夕陽，夜景，盡收眼底的制高點觀景台，輕鬆寫意，有夠Chill！<br>
+                第一次露營，就是想要美美的來，再帶著滿滿的美照回家？不擔心，所有露營裝備我們都準備好了！<br>
+                遇到大小問題，露營管家也24小時stand by了，為的就是讓大家有一個愉快的露營初體驗。<br>
+                除此之外，交通很便利，苗栗公館交流道下10分鐘可抵達，鄰近市區好採買！</p>
+            <div class="d-flex">
+                <img src="https://pic03.eapple.com.tw/simplelifecamp/si_i_img1.jpg" alt="" class="wow animate__fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                <img src="https://pic03.eapple.com.tw/simplelifecamp/si_i_img2.jpg" alt="" class="wow animate__fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                <img src="https://pic03.eapple.com.tw/simplelifecamp/si_i_img3.jpg" alt="" class="wow animate__fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+            </div>
+        </div>
+    </section>
+
+    <!-- section 13 相關數據呈現 -->
+    <section id="s13" style="background-image: url(images/SPA/BGI01.png);background-size: 100% 100%;">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-5 bg-cover wow animate__slideInLeft" data-wow-duration="2s" data-wow-delay="0s"
+                    data-wow-iteration="1" style="background-image: url(images/SPA/SPA16.jpg);height: 800px;">
+                </div>
+                <div class="col-7 p-5">
+                    <div class="h1 text-success text-center">小日子露營區</div>
+                    <div class="h1 text-danger text-center">享受戶外生活的完美選擇！</div>
+                    <p class="mb-1 h5" style="color:var(--textcolor01);">超過85%的露營者：<span
+                            class="text-dark">認為露營讓他們更貼近自然，減輕日常生活壓力。</span> </p>
+                    <p class="mb-1 h5" style="color:var(--textcolor01);">平均每人露營次數： <span
+                            class="text-dark">每年平均10次，成為短途旅遊的熱門選擇。</span> </p>
+                    <p class="mb-1 h5" style="color:var(--textcolor01);">露營區設備滿意度：<span
+                            class="text-dark">高達90%的露營者表示對露營區的基礎設施和安全措施感到滿意。</span> </p>
+                    <p class="mb-1 h5" style="color:var(--textcolor01);">家庭露營比例：<span
+                            class="text-dark">60%的露營者選擇與家人同行，將露營變成聯繫情感的最佳時光。</span> </p>
+                    <div class="row mt-5">
+                        <div class="col-md-3">
+                            <div class="h4 fw-900">露營年均人數</div>
+                            <div class="h2 fw-900 counter01">85/%</div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 fw-900">露營年均次數</div>
+                            <div class="h2 fw-900 counter02">10 <span>/次</span></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 fw-900">營區滿意度</div>
+                            <div class="h2 fw-900 counter03">90 <span>/%</span></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="h4 fw-900">家庭露營比例</div>
+                            <div class="h2 fw-900 counter04">60 <span>/%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 04 活動精神 -->
+    <section id="s04" class="bg-005">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center my-4">
+                    <img src="images/SPA/star.png" alt="" class="d-none d-md-block mx-auto wow animate__bounceIn"
+                        data-wow-duration="4s" data-wow-delay="0s" data-wow-iteration="1" width="125px">
+                    <h2 class="text-primary fw-900 my-3">遠離喧囂,擁抱星空。</h2>
+                    <p>不管是日落的金色餘暉，還是夜空中繁星的閃爍，露營讓你回到最純粹的自然，重新發現與世界的連結。
+                    </p>
+                </div>
+                <div class="col-md-4 text-center my-4">
+                    <img src="images/SPA/camping-tent.png" alt=""
+                        class="d-none d-md-block mx-auto wow animate__bounceIn" data-wow-duration="4s"
+                        data-wow-delay="0s" data-wow-iteration="1" width="125px">
+                    <h2 class="text-primary fw-900 my-3">在大自然的懷抱中,找回最真實的自己。</h2>
+                    <p>露營不僅是與朋友和家人共享歡樂時光，更是一次心靈的放鬆與重生，讓每個瞬間都變得無比珍貴。
+                    </p>
+                </div>
+                <div class="col-md-4 text-center my-4">
+                    <img src="images/SPA/camping.png" alt="" class="d-none d-md-block mx-auto wow animate__bounceIn"
+                        data-wow-duration="4s" data-wow-delay="0s" data-wow-iteration="1" width="125px">
+                    <h2 class="text-primary fw-900 my-3">與朋友共度,記憶如同營火般長燃。</h2>
+                    <p>一場露營，不只是搭起帳篷那麼簡單。它是分享歡笑、擁抱冒險、彼此扶持的時光，將友誼與回憶牢牢記在心中。
+                    </p>
+                </div>
+            </div>
+            </container>
+    </section>
+
+    <!-- section 05 營區內容介紹-->
+    <section id="s05" class="position-relative"
+        style="background-image: url(images/SPA/BGI02.png); background-size: 100% 100%;">
+        <div class="container-fluid">
+        <div class="row">
+                <div class="col-md-5 position-absolute bottom-0 top-0 bg-cover wow animate__slideInLeft"
+                    data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                    style="background-image: url(images/SPA/SPA12.jpg); background-size: 100% 100%;"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7 text-center s05-text">
+                    <div class="h3 fw-900 my-3">營區介紹</div>
+                    <p>【小日子露營區】為那些想要逃離忙碌生活但又不想擔心露營細節的朋友們打造的理想場所。我們提供一站式服務，包括已搭好的帳篷、乾淨的床鋪、可口的餐食，甚至連野營用具都幫您準備好。只需帶上自己和好心情，享受這片無壓力的綠意世界！放下繁忙的生活，輕鬆享受與自然親密接觸的樂趣。
+                    </p>
+                    <button class="btn btn-outline-danger">查看更多</button>
+                    <div class="row my-3">
+                        <div class="col-md-6">
+                            <div class="h4 fw-900">經典鐘型帳<br>(4~6人)</div>
+                            <p>這款 4~6人鐘型帳篷
+                                以其穩定的結構設計與防水防風的優勢，成為戶外露營愛好者的理想選擇。無論是晴天還是陰雨天，您都能享有舒適的庇護。帳篷內部設計寬敞，適合多人使用，無論是安靜的夜晚還是歡樂的白天時光，這款帳篷都能讓您和您的夥伴感受到極致的放鬆和享受。
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="h4 fw-900">豪華鐘型帳<br>(5~8人)</div>
+                            <p>專為家庭和小團體設計，這款 5~8人鐘型帳篷
+                                提供您超大空間，無論是團體活動還是獨立休息，都能享有充分的舒適感。圓頂設計不僅增添美觀，還讓帳篷內部空間更加寬敞，讓您能自由走動，放下行李，享受與大自然親密接觸的每一刻。穩固的防水材質和透氣系統，確保您在任何天氣條件下都能享有完美的露營體驗。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 06 嚴選豐盛烤肉食材 -->
+    <section id="s06">
+        <div class="container">
+            <div class="display-4 fw-900 text-center text-003">嚴選豐盛食材</div>
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center">
+                    <img src="images/SPA/food05.jpg" alt="" class="me-4">
+                    <div>
+                        <div class="h2 text-001 fw-900 my-3">3-4人極選餐<span class="h4 fw-800 text-010">原價:1400</span>
+                        </div>
+                        <p>美國板腱牛肉片200G<br>
+                            美國雪花牛肉片200G<br>
+                            台灣豬燒烤肉片200G<br>
+                            冷凍去殼大生蝦仁4尾<br>
+                            北海道生食級大干貝4顆<br>
+                            厚切松阪豬120G<br>
+                            去骨雞腿排200G<br>
+                            嚴選後腿肉香腸4條<br>
+                            風味純手工貢丸4顆<br>
+                            季節蔬菜組合1份<br>
+                            韓國泡麵1組<br>
+                            吐司半條<br>
+                            韓式不沾烤肉爐1組<br>
+                            瓦斯罐2罐<br>
+                            調味品：烤肉醬、精鹽油、胡椒粉、醬油、蒜頭</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <img src="images/SPA/food04.jpg" alt="" class="me-4">
+                    <div>
+                        <div class="h2 text-001 fw-900 my-3">5-6人特選餐<span class="h4 fw-800 text-010">原價:2000</div>
+                        <p>美國板腱牛肉片400G<br>
+                            美國雪花牛肉片200G<br>
+                            台灣豬燒烤肉片400G<br>
+                            冷凍去殼大生蝦仁6尾<br>
+                            北海道生食級大干貝6顆<br>
+                            厚切松阪豬140G<br>
+                            去骨雞腿排400G<br>
+                            嚴選後腿肉香腸6條<br>
+                            風味純手工貢丸6顆<br>
+                            季節蔬菜組合1份<br>
+                            韓國泡麵1組<br>
+                            吐司半條<br>
+                            韓式不沾烤肉爐1組<br>
+                            瓦斯罐3罐<br>
+                            調味品：烤肉醬、精鹽油、胡椒粉、醬油、蒜頭</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <img src="images/SPA/food01.jpg" alt="" class="me-4">
+                    <div>
+                        <div class="h2 text-001 fw-900 my-3">7-8人豪華餐<span class="h4 fw-800 text-010">原價:2800</div>
+                        <p>美國板腱牛肉片400G<br>
+                            美國雪花牛肉片400G<br>
+                            台灣豬燒烤肉片400G<br>
+                            冷凍去殼大生蝦仁8尾<br>
+                            北海道生食級大干貝8顆<br>
+                            厚切松阪豬160G<br>
+                            去骨雞腿排600G<br>
+                            蒜香醃中段五花肉300G<br>
+                            嚴選後腿肉香腸8條<br>
+                            風味純手工貢丸8顆<br>
+                            季節蔬菜組合1份<br>
+                            韓國泡麵1組<br>
+                            吐司半條<br>
+                            韓式不沾烤肉爐1組<br>
+                            瓦斯罐3罐<br>
+                            調味品：烤肉醬、精鹽油、胡椒粉、醬油、蒜頭</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <img src="images/SPA/food02.jpg" alt="" class="me-4">
+                    <div>
+                        <div class="h2 text-001 fw-900 my-3">9-10人派對餐<span class="h4 fw-800 text-010">原價:3500</div>
+                        <p>美國板腱牛肉片600G<br>
+                            美國雪花牛肉片400G<br>
+                            台灣豬燒烤肉片600G<br>
+                            冷凍去殼大生蝦仁10尾<br>
+                            北海道生食級大干貝10顆<br>
+                            厚切松阪豬180G<br>
+                            去骨雞腿排600G<br>
+                            蒜香醃中段五花肉300G<br>
+                            嚴選後腿肉香腸10條<br>
+                            風味純手工貢丸10顆<br>
+                            季節蔬菜大組合1份<br>
+                            韓國泡麵1組<br>
+                            吐司半條<br>
+                            韓式不沾烤肉爐2組<br>
+                            瓦斯罐4罐
+                            調味品：烤肉醬、精鹽油、胡椒粉、醬油、蒜頭</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 12 露營小白流程教學 -->
+    <section id="s12" class="bg-secondary py-5 bg-cover"
+        style="background-image: url(images/CAMP/CAMP05.jpg); background-attachment: fixed;">
+        <div class="container">
+            <div class="row justify-content-end align-items-center">
+                <div class="col-md-4 my-2">
+                    <div class="s12-text">
+                        <div class="h2 fw-900 text-002">露營小白流程教學</div>
+                        <p class="text-white fs-5">
+                            喜歡和朋友相聚的熱鬧，又嚮往被星空、蟲鳴圍繞的愜意，露營絕對是個好選擇！不過，沒有餐廳、民宿的露營行程，一切都要自己準備，讓身為露營新手的你感到心慌慌嗎？此篇將分享露營準備工作有甚麼、如何準備露營食材，並提供你一分清楚明瞭的露營準備清單，以及懶人露營的小撇步，一起來看看吧。
+                        </p>
+                    </div>
+                </div>
+                <div class="row col-md-8 timeline-section">
+                    <div class="row align-items-center timeline-section-pointer">
+                        <div class="col-6">
+                            <div class="s12-text text-white  rounded-3 shadow-lg mx-2">
+                                <h3 class="fw-800 text-010">流程一：挑選營地</h3>
+                                <p>挑選營地時，首要之務是優先選擇合法的營地，接著再依照需求、喜好做選擇。建議初次露營者可以選擇低海拔、設備供應齊全的營地，通過一次練習後，就可以逐步挑戰不同類型的露營方式，體驗露營的樂趣。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="s12-img bg-cover rounded-3 shadow-lg mx-2"
+                                style="height: 220px; background-image: url(images/SPA/SPA18.jpg);background-size: 100% 100%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                        <div class="col-6">
+                            <div class="s12-text text-white  rounded-3 shadow-lg mx-2">
+                                <h3 class="fw-800 text-010">流程二：抵達 & 設置營地</h3>
+                                <p>到達露營區後，工作人員會協助你快速設置營地。只需簡單的指示，帳篷和其他設備便已經準備妥當，你可以立刻放鬆，開始享受大自然的美景。</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="s12-img bg-cover rounded-3 shadow-lg mx-2"
+                                style="height: 220px; background-image: url(images/SPA/SPA19.jpg);background-size: 100% 100%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center timeline-section-pointer">
+                        <div class="col-6">
+                            <div class="s12-text text-white  rounded-3 shadow-lg mx-2">
+                                <h3 class="fw-800 text-010">流程三：準備食材</h3>
+                                <p>與朋友同樂，吃吃喝喝絕對是不可或缺的環節，美好的食物也能更添趣味。要在營地料理美食，除了食材本身和料理用具都需要兼具輕便、簡單，卻不失情調的特性，下一段將詳細介紹露營如何準備伙食，一起看下去吧。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="s12-img bg-cover rounded-3 shadow-lg mx-2"
+                                style="height: 220px; background-image: url(images/SPA/SPA20.jpg);background-size: 100% 100%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                        <div class="col-6">
+                            <div class="s12-text text-white  rounded-3 shadow-lg mx-2">
+                                <h3 class="fw-800 text-010">流程四：開始享受露營</h3>
+                                <p>一切就緒後，開始享受你的露營時光！無論是遠足、釣魚、篝火晚會，還是享受寧靜的星空，每一刻都讓你更加親近大自然，放鬆身心，盡情享受戶外生活。</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="s12-img bg-cover rounded-3 shadow-lg mx-2"
+                                style="height: 220px; background-image: url(images/SPA/SPA21.jpg);background-size: 100% 100%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section 07 營區設備.環境介紹 -->
+    <section id="s07" style="background-image: url(images/BGI/BGI-01.jpg);background-size: 100% 100%;">
+        <div class="container">
+            <div class="display-4 fw-bold text-center my-1 text-003">營區設備及環境介紹</div>
+
+            <!-- 第一排 -->
+            <div class="row justify-content-center g-3">
+                <!-- 卡片 1 -->
+                <div class="col-lg-4 text-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="bg-info myroller-l rounded-4 bg-cover wow animate__zoomInUp" data-wow-duration="2s"
+                            data-wow-delay="0s" data-wow-iteration="1"
+                            style="width: 300px; height: 200px; background-image: url(images/SPA/SPA22.jpg);">
+                            <h4 class="roller-l text-004">帳篷設備</h4>
+                        </div>
+                        <p class="mt-2"><img alt="" src="images/SPA/logo03.png" width="22px">造型帳篷</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">炊事帳</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">雙人床</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">單人羽絨被,羽絨睡枕</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">置物箱</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">戶外餐桌,露營餐椅</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">炊事工作燈,帳內夜燈</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">電扇</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">地布</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">三孔動力延長線</p>
+                    </div>
+                </div>
+
+                <!-- 卡片 2 -->
+                <div class="col-lg-4 text-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="bg-info myroller-l rounded-4 bg-cover wow animate__zoomInUp" data-wow-duration="3s"
+                            data-wow-delay="0s" data-wow-iteration="1"
+                            style="width: 300px; height: 200px; background-image: url(images/SPA/SPA27.jpg);">
+                            <h4 class="roller-l text-004">炊事用客廳帳</h4>
+                        </div>
+                        <p class="mt-2"><img alt="" src="images/SPA/logo03.png" width="22px">炊事帳</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">KZM時尚露營椅</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">折疊型餐桌</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">炊事工作燈</p>
+                    </div>
+                </div>
+
+                <!-- 卡片 3 -->
+                <div class="col-lg-4 text-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="bg-info myroller-l rounded-4 bg-cover wow animate__zoomInUp" data-wow-duration="5s"
+                            data-wow-delay="0s" data-wow-iteration="1"
+                            style="width: 300px; height: 200px; background-image: url(images/SPA/SPA24.jpg);">
+                            <h4 class="roller-l text-004">炊事帳設備</h4>
+                        </div>
+                        <p class="mt-2"><img alt="" src="images/SPA/logo03.png" width="22px">卡式爐,韓式鐵板燒爐,瓦斯罐</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">煮水壺</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">炒鍋,湯鍋,鍋鏟</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">剪刀</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">湯杓</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">不鏽鋼碗盤杯子</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">刀具</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">砧板</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">抹布</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第二排 -->
+            <div class="row justify-content-center mb-1 g-3">
+                <!-- 卡片 4 -->
+                <div class="col-lg-4 text-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="bg-info myroller-l rounded-4 bg-cover wow animate__zoomInUp" data-wow-duration="6s"
+                            data-wow-delay="0s" data-wow-iteration="1"
+                            style="width: 300px; height: 200px; background-image: url(images/SPA/SPA26.jpg);">
+                            <h4 class="roller-l text-004">公共衛浴設備</h4>
+                        </div>
+                        <p class="mt-2"><img alt="" src="images/SPA/logo03.png" width="22px">沐浴乳</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">洗髮精</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">負離子吹風機</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">衛生紙</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">24小時熱水</p>
+                    </div>
+                </div>
+
+                <!-- 卡片 5 -->
+                <div class="col-lg-4 text-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="bg-info myroller-l rounded-4 bg-cover wow animate__zoomInUp" data-wow-duration="7s"
+                            data-wow-delay="0s" data-wow-iteration="1"
+                            style="width: 300px; height: 200px; background-image: url(images/SPA/SPA28.jpg);">
+                            <h4 class="roller-l text-004">公共區域</h4>
+                        </div>
+                        <p class="mt-2"><img alt="" src="images/SPA/logo03.png" width="22px">燈條、燈球</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">帳篷布旗可適量取用,離營前歸還營本部</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">浴室區備有沐浴乳,洗髮精,負離子吹風機供使用</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">營本部有冷凍,冷藏冰箱及冷熱水飲水機供使用</p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">園區內無提供Wi-Fi,跟朋友家人與大自然共享歡樂時光吧</p>
+                    </div>
+                </div>
+
+                <!-- 卡片 6 -->
+                <div class="col-lg-4 text-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="bg-info myroller-l rounded-4 bg-cover wow animate__zoomInUp" data-wow-duration="8s"
+                            data-wow-delay="0s" data-wow-iteration="1"
+                            style="width: 300px; height: 200px; background-image: url(images/SPA/SPA24.jpg);">
+                            <h4 class="roller-l text-004">自備項目</h4>
+                        </div>
+                        <p class="mt-2"><img alt="" src="images/SPA/logo03.png" width="22px">食材,酒水飲料,個人筷子,湯匙叉子及毛巾,牙刷等用具
+                        </p>
+                        <p><img alt="" src="images/SPA/logo03.png" width="22px">暖衣物,防蚊液,雨傘,拖鞋或個人醫療用品</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- section 08 收費(方案) -->
+    <section id="s08" class="position-relative"
+        style="background-image: url(images/SPA/BGI02.png);background-size: 100% 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 s08-text">
+                    <dl class="row">
+                        <dt class="col-sm-3 text-002">小資鐘型帳方案</dt>
+                        <dd class="col-sm-9">
+                            <p class="text-010">價格：NT$6,000 起</p>
+                            <p>用最低的預算享受最棒的露營體驗！小資方案提供您所需的基本設備與舒適的空間布置，讓每一位客人都能在輕鬆愉快的氛圍中度過美好時光。</p>
+                            <p>特別適合小型活動，如家庭聚餐、朋友派對或簡單的週末放鬆，讓每一刻都充滿暖意和歡笑！</p>
+                        </dd>
+
+                        <dt class="col-sm-3 text-002">經典鐘型帳方案</dt>
+                        <dd class="col-sm-9">
+                            <p class="text-010">價格：NT$11,000 起</p>
+                            <p>提升您的露營體驗！經典方案包含更完善的設備與布置，並提供周到的專業服務，為您的活動增添更多舒適與儀式感。</p>
+                        </dd>
+                        <dt class="col-sm-3 text-002">豪華鐘型帳方案</dt>
+                        <dd class="col-sm-9">
+                            <p class="text-010">價格：NT$14,000 起</p>
+                            <p>為您打造無與倫比的豪華露營體驗！豪華方案包含高端設備、個性化設計與精緻服務，讓每個細節都完美無缺。</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-md-5 position-absolute top-0 bottom-0 bg-cover wow animate__slideInRight"
+                data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                style="background-image: url(images/SPA/SPA13.jpg);background-size: 100% 100%;"></div>
+        </div>
+    </section>
+
+    <!-- section 09 訂購營區表單 -->
+    <section id="s09" style="background-image: url(images/SPA/BGI02.png);background-size: 100% 100%;">
+        <div class="container my-1">
+            <div class="row">
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3629.410841532657!2d120.83973994041351!3d24.54046085807739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469abc9bc1d9a99%3A0xcd9cfb30d8a277e6!2z5bCP5pel5a2Q6Zyy54ef5Y2A!5e0!3m2!1szh-TW!2stw!4v1736268585934!5m2!1szh-TW!2stw"
+                        width="100%" height="570" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="wow animate__slideInLeft my-5"
+                        data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"></iframe>
+                </div>
+                <div class="col-md-6 my-5">
+                    <div class="mb-3">
+                        <select name="" id="" class="form-select form-select-lg">
+                            <option value="" class="text-center" selected disabled>---選擇要採用的方案名稱---</option>
+                            <option value="小資鐘型帳方案">小資鐘型帳方案</option>
+                            <option value="經典鐘型帳方案">經典鐘型帳方案</option>
+                            <option value="豪華鐘型帳方案">豪華鐘型帳方案</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">姓名</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <select name="selectCity" id="selectCity" class="form-select form-select-lg">
+                            <option value="" class="text-center" selected disabled>---選擇縣市名稱---</option>
+                            <option value="">台中市</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <select name="selectArea" id="selectArea" class="form-select form-select-lg">
+                            <option value="" class="text-center" selected disabled>---選擇鄉鎮區名稱---</option>
+                            <option value="">西屯區</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="X路X段X號.......">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">電話</label>
+                        <input type="tel" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">人數</label>
+                        <input type="number" min="1" max="100" class="form-control">
+                    </div>
+                    <div class="text-end">
+                        <button class="btn btn-secondary">取消</button>
+                        <button class="btn btn-success">送出</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 10 合作露營區 -->
+    <section id="s10">
+        <div class="row">
+            <div class="col-md-6" style="background-image: url(images/SPA/SPA29.jpg);background-size: 100% 100%;">
+                <div class="row">
+                    <div class="col-md-9 m-5 p-3 text-white rounded-3 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.4);">
+                        <small class="badge text-bg-danger">歡迎參觀</small>
+                        <div class="h2 text-002 fw-900 my-1">桃樂絲露營區</div>
+                        <p class="text-001 fw-700">桃樂絲露營區，取名自童話故事《綠野仙蹤》女主角，
+                            這裡沒有漫漫旅程和邪惡女巫，但卻處處充滿著意想不到的「驚喜」與「冒險」元素。
+                            桃樂絲就像是鑲嵌在小山坡上的寶藏，
+                            營區面向正西方，坐擁夕陽第一排，每分每刻都有不同景致，更可暢享城市夜景秀。
+                            花木扶疏、綠意盎然，咦！營區內竟然還有可以自摘自採的開心農場呢！</p>
+                        <a href="http://www.dorothycamp.com.tw/"><button
+                                class="btn btn-outline-danger">網站連結</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 bg-cover"
+                style="background-image: url(images/SPA/SPA30.jpg);background-size: 100% 100%;">
+                <div class="row">
+                    <div class="col-md-9 m-5 p-3 text-white rounded-3 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.4);">
+                        <small class="badge text-bg-danger">歡迎參觀</small>
+                        <div class="h2 text-002 fw-900 my-1">夏綠地露營區</div>
+                        <p class="text-001 fw-700">夏綠地露營區，海拔 681 公尺的高度，將氣溫調低了三度，是大自然最普遍卻也最舒適的魔法。
+                            夜景星空、夕幕晚霞、壯麗雲海，若足夠幸運，可一次擁有！
+                            即便少了點運氣，仍可坐擁層疊山景和遼闊視野，遠眺薑麻園、關刀山。
+                        </p>
+                        <a href="https://www.evergreen-glamping.com/"><button
+                                class="btn btn-outline-danger">網站連結</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section15  營業時間 -->
+    <div class="hs_box si_i">
+        <section class="si_t01">
+            <div class="si_t01m si_iw1200 d-flex">
+                <div data-animate-in="up" class="si_t01box in-view">
+                    <h6>營業時間</h6>
+                    <div class="si_t01c d-flex">
+                        <img src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii.png" alt="">
+                        <p>營業時間：全年皆開放<br>
+                            週一至週四最低入住人數為4人</p>
+                        <img class="popo" src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii2.png" alt="">
+                    </div>
+                    <div class="si_t01c d-flex">
+                        <img src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii.png" alt="">
+                        <p>入住時間：夏季15:30 / 冬季15:00</p>
+                        <img class="popo" src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii2.png" alt="">
+                    </div>
+                    <div class="si_t01c d-flex">
+                        <img src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii.png" alt="">
+                        <p>退房時間：11:00前</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--手機版-->
+        <div class="m_box">
+            <img src="https://pic03.eapple.com.tw/simplelifecamp/si_t_bg1.jpg" alt="">
+            <section class="si_m01 si_iw1200">
+                <h6>營業時間</h6>
+                <div class="si_t01c d-flex">
+                    <img src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii.png" alt="">
+                    <p>營業時間：全年皆開放<br>
+                        週一至週四最低入住人數為4人</p>
+                    <img class="popo" src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii2.png" alt="">
+                </div>
+                <div class="si_t01c d-flex">
+                    <img src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii.png" alt="">
+                    <p>入住時間：夏季15:30 / 冬季15:00</p>
+                    <img class="popo" src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii2.png" alt="">
+                </div>
+                <div class="si_t01c d-flex">
+                    <img src="https://pic03.eapple.com.tw/simplelifecamp/si_t_ii.png" alt="">
+                    <p>退房時間：11:00前</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- section 11 友站和版權 -->
+        <section id="s11">
+            <div class="container">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link disabled">PowerBy 雲端技術班2025.01</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">桃樂絲露營區</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">夏綠地露營區</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script>
+
+            new WOW().init();
+
+
+            // city公有變數
+            var city;
+            var selectedCity; //紀錄所選取的縣市名稱
+            var selectedArea; //紀錄所選取的鄉鎮區名稱
+            $(function () {
+                // counterup2
+                const counterUp = window.counterUp.default
+
+                const callback = entries => {
+                    entries.forEach(entry => {
+                        const el = entry.target
+                        if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                            counterUp(el, {
+                                duration: 2000,
+                                delay: 16,
+                            })
+                            el.classList.add('is-visible')
+                        }
+                    })
+                }
+
+                const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+                const el01 = document.querySelector('.counter01')
+                IO.observe(el01)
+
+                const el02 = document.querySelector('.counter02')
+                IO.observe(el02)
+
+                const el03 = document.querySelector('.counter03')
+                IO.observe(el03)
+
+                const el04 = document.querySelector('.counter04')
+                IO.observe(el04)
+
+                // section 09 客戶需求表單 -->縣市選單
+
+                // 載入縣市資料
+                $.ajax({
+                    type: "GET",
+                    url: "js/CityCountyData.json",
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        console.log(data);
+                        city = data;
+                    },
+                    error: function () {
+                        console.log("error-js/CityCountyData.json");
+                    }
+                });
+
+                console.log(city);
+
+
+                // 顯示縣市選單
+                $("#selectCity").empty();
+                $("#selectCity").append('<option value="" class="text-center" selected disabled>---選擇縣市名稱---</option>');
+                city.forEach(function (item) {
+                    console.log(item.CityName);
+
+                    var strHTML = `<option value="${item.CityName}">${item.CityName}</option>`;
+                    $("#selectCity").append(strHTML);
+                });
+
+
+                // 監聽縣市選單
+                $("#selectCity").change(function () {
+                    console.log($(this).val());
+                    selectedCity = $(this).val();
+
+                    city.forEach(function (item) {
+                        if (item.CityName == selectedCity) {
+                            //產生鄉鎮區選單
+                            $("#selectArea").empty();
+                            $("#selectArea").append('<option value="" class="text-center" selected disabled>---選擇鄉鎮區名稱---</option>');
+                            item.AreaList.forEach(function (myitem) {
+                                console.log(myitem.AreaName);
+
+                                var strHTML = `<option value="${myitem.AreaName}">${myitem.AreaName}</option>`;
+                                $("#selectArea").append(strHTML);
+                            });
+                        }
+                    });
+                });
+            });
+
+
+
+        </script>
+</body>
+
+</html>
